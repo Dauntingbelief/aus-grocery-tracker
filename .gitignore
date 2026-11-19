@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Secrets: only .env.example is committed
+.env
+
+# Generated outputs (rebuilt from data/raw by `grocery-tracker transform`)
+data/processed/
+
+# CDK
+cdk.out/
+
+.DS_Store

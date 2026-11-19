@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aus-grocery-tracker"
+version = "0.1.0"
+description = "Australian supermarket basket price tracker and inflation analysis vs ABS CPI"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.2",
+    "pyarrow>=16",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+# AWS CDK (needs Node.js installed for the jsii runtime)
+infra = [
+    "aws-cdk-lib>=2.170,<3",
+    "constructs>=10,<11",
+    "boto3>=1.35",
+]
+
+[project.scripts]
+grocery-tracker = "grocery_tracker.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["infra"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F: pycodestyle + pyflakes, I: import sorting, B: bugbear, UP: pyupgrade, SIM: simplify
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["grocery_tracker", "grocery_infra"]
