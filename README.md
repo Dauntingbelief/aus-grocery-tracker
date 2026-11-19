@@ -1,5 +1,7 @@
 # Aussie Grocery Basket Tracker
 
+[![CI](https://github.com/Dauntingbelief/aus-grocery-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Dauntingbelief/aus-grocery-tracker/actions/workflows/ci.yml)
+
 Tracks a fixed basket of ~60 Australian supermarket products week by week, and compares
 category price changes with ABS CPI food sub-indexes. It also measures how often items go on
 special and how deep the discounts really are.
