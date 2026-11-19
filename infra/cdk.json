@@ -1,0 +1,11 @@
+{
+  "app": "python app.py",
+  "watch": {
+    "include": ["**"],
+    "exclude": ["cdk.out", "**/__pycache__"]
+  },
+  "context": {
+    "region": "ap-southeast-2",
+    "pandas_layer_version": 32
+  }
+}
