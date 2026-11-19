@@ -1,0 +1,63 @@
+product_id,name,brand,category,pack_size
+bread-white-sandwich,White Sandwich Bread,Coles,bread,700g
+bread-wholemeal,Wholemeal Bread,Tip Top,bread,700g
+wraps-plain,Plain Wraps 8 Pack,Mission,bread,567g
+biscuits-choc-cream,Tim Tam Original,Arnott's,cakes_biscuits,200g
+crackers-jatz,Jatz Crackers,Arnott's,cakes_biscuits,225g
+cereal-wheat-biscuits,Weet-Bix,Sanitarium,breakfast_cereals,1.2kg
+cereal-rolled-oats,Rolled Oats,Coles,breakfast_cereals,1kg
+cereal-corn-flakes,Corn Flakes,Kellogg's,breakfast_cereals,725g
+rice-long-grain,Long Grain White Rice,SunRice,other_cereals,1kg
+pasta-spaghetti,Spaghetti,Coles,other_cereals,500g
+flour-plain,Plain Flour,Coles,other_cereals,1kg
+noodles-instant-5pk,Instant Noodles Chicken 5 Pack,Maggi,other_cereals,5x72g
+beef-mince-500g,Beef Mince,Coles,beef_veal,500g
+beef-rump-steak,Beef Rump Steak (per kg),Coles,beef_veal,1kg
+pork-loin-chops,Pork Loin Chops (per kg),Coles,pork,1kg
+lamb-loin-chops,Lamb Loin Chops (per kg),Coles,lamb_goat,1kg
+chicken-breast-fillet,Chicken Breast Fillets (per kg),Coles,poultry,1kg
+chicken-thigh-fillet,Chicken Thigh Fillets (per kg),Coles,poultry,1kg
+bacon-middle,Middle Bacon,Coles,other_meats,250g
+ham-shaved,Shaved Leg Ham,Coles,other_meats,250g
+sausages-beef,Thin Beef Sausages,Coles,other_meats,500g
+salmon-portions,Tasmanian Salmon Portions,Coles,fish_seafood,240g
+tuna-springwater,Tuna in Springwater,John West,fish_seafood,95g
+milk-full-cream-2l,Full Cream Milk,Coles,milk,2L
+milk-light-2l,Lite Milk,Coles,milk,2L
+milk-uht-1l,Long Life Full Cream Milk,Coles,milk,1L
+cheese-tasty-block,Tasty Cheese Block,Coles,cheese,500g
+cheese-slices,Tasty Cheese Slices,Bega,cheese,250g
+yoghurt-greek,Greek Style Yoghurt,Coles,ice_cream_dairy,1kg
+ice-cream-vanilla,Vanilla Ice Cream,Streets Blue Ribbon,ice_cream_dairy,2L
+cream-thickened,Thickened Cream,Coles,ice_cream_dairy,300mL
+bananas,Bananas (per kg),Loose,fruit,1kg
+apples-royal-gala,Royal Gala Apples (per kg),Loose,fruit,1kg
+oranges-navel,Navel Oranges (per kg),Loose,fruit,1kg
+strawberries,Strawberries Punnet,Coles,fruit,250g
+avocado,Hass Avocado,Loose,fruit,1ea
+potatoes-washed-2kg,Washed Potatoes Bag,Coles,vegetables,2kg
+carrots-1kg,Carrots Bag,Coles,vegetables,1kg
+onions-brown-1kg,Brown Onions Bag,Coles,vegetables,1kg
+tomatoes-gourmet,Gourmet Tomatoes (per kg),Loose,vegetables,1kg
+broccoli,Broccoli (per kg),Loose,vegetables,1kg
+lettuce-iceberg,Iceberg Lettuce,Loose,vegetables,1ea
+cucumber-continental,Continental Cucumber,Loose,vegetables,1ea
+peas-frozen,Frozen Garden Peas,Coles,vegetables,1kg
+tomatoes-diced-can,Diced Tomatoes,Coles,vegetables,400g
+eggs-free-range-12,Free Range Eggs 12 Pack,Coles,eggs,12ea
+peanut-butter,Smooth Peanut Butter,Bega,jams_spreads,375g
+vegemite,Vegemite,Bega,jams_spreads,380g
+honey,Pure Honey,Capilano,jams_spreads,500g
+tomato-sauce,Tomato Sauce,Masterfoods,condiments,500mL
+mayonnaise,Whole Egg Mayonnaise,Praise,condiments,440g
+olive-oil-ev,Extra Virgin Olive Oil,Coles,oils_fats,750mL
+butter-salted,Salted Butter,Western Star,oils_fats,500g
+potato-chips,Original Potato Chips,Smith's,snacks_confectionery,170g
+chocolate-block,Dairy Milk Chocolate Block,Cadbury,snacks_confectionery,180g
+baked-beans,Baked Beans in Tomato Sauce,Heinz,other_food,420g
+sugar-white,White Sugar,CSR,other_food,2kg
+coffee-instant,Blend 43 Instant Coffee,Nescafe,coffee_tea,150g
+tea-bags-100,Black Tea Bags 100 Pack,Bushells,coffee_tea,100ea
+cola-1-25l,Coca-Cola Classic,Coca-Cola,soft_drinks_juices,1.25L
+orange-juice-2l,Australian Orange Juice,Coles,soft_drinks_juices,2L
+water-24x600ml,Spring Water 24 Pack,Coles,soft_drinks_juices,24x600mL
