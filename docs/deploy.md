@@ -19,34 +19,37 @@ Everything is defined in `infra/` with AWS CDK (Python). Region: `ap-southeast-2
 
 ## One-time setup
 
-**1. Fix Node.js.** CDK runs on Node. Homebrew's node is currently broken on this Mac because of a missing `llhttp` library.
-
-```bash
-brew update && brew upgrade node
-```
+**1. Install Node.js (LTS).** CDK runs on Node. Use the official macOS installer from [nodejs.org](https://nodejs.org). On older macOS versions Homebrew has no prebuilt packages, so `brew install node` compiles LLVM and Rust from source, which takes hours and many GB of disk.
 ```bash
 node --version
 ```
 
-**2. Install the AWS CLI.**
+**2. Install the AWS CLI** (v2.32 or newer, which includes `aws login`).
 ```bash
 brew install awscli
 ```
 
-**3. Sign in without long-lived keys.** In the AWS console, enable **IAM Identity Center**, create a user for yourself, and give it the `AdministratorAccess` permission set on your account. Don't use the root user. Then:
+**3. Create an IAM user for yourself.** Do this once in the AWS console, signed in as root:
+- Turn on MFA for the root user.
+- Create an IAM user (e.g. `admin`) with console access and the `AdministratorAccess` policy, and turn on MFA for it too.
+- Sign out of root and do everything else as this user. Never create access keys for root.
+
+**4. Sign in from the CLI without long-lived keys.** `aws login` opens the browser and asks you to sign in as the IAM user. The CLI then receives short-lived credentials and keeps refreshing them while the session is valid. When a command says your session has expired, run it again.
 ```bash
-aws configure sso --profile grocery-tracker
+aws login --profile grocery-tracker
 ```
+Check you're the IAM user, not root. The ARN should end in `:user/<name>`:
 ```bash
 aws sts get-caller-identity --profile grocery-tracker
 ```
+> If your organisation uses IAM Identity Center, `aws configure sso --profile grocery-tracker` works too.
 
-**4. Install the CDK Python libraries** into the project venv:
+**5. Install the CDK Python libraries** into the project venv:
 ```bash
 pip install -e ".[dev,infra]"
 ```
 
-**5. Bootstrap CDK** (once per account and region). This creates a `CDKToolkit` stack with an S3 bucket for uploaded code and the IAM roles CDK deploys with. Cost is fractions of a cent.
+**6. Bootstrap CDK** (once per account and region). This creates a `CDKToolkit` stack with an S3 bucket for uploaded code and the IAM roles CDK deploys with. Cost is fractions of a cent.
 ```bash
 cd infra && npx aws-cdk@2 bootstrap --profile grocery-tracker
 ```
@@ -60,7 +63,18 @@ npx aws-cdk@2 diff --profile grocery-tracker -c budget_email=YOUR_EMAIL
 ```bash
 npx aws-cdk@2 deploy --profile grocery-tracker -c budget_email=YOUR_EMAIL
 ```
-The outputs print `BucketName`, `TransformFunctionName` and `TransformLogGroup`.
+The outputs print `BucketName`, `TransformFunctionName` and `TransformLogGroup`. A first deploy takes about 90 seconds.
+
+AWS Budgets emails the alert address directly. It doesn't send a confirmation email first.
+
+## Smoke test (first deploy)
+
+Upload a two-row CSV to `raw/prices/date=2026-01-05/`, then check the logs and query Athena. Measured on the first deploy:
+
+- The Lambda ran about 1 second after the upload: 2.1 s cold start, 1.0 s run, 210 MB of memory used out of 1024 MB.
+- The Athena query scanned 686 bytes. Unit price and discount maths matched the local tests.
+
+Then delete the test CSV **and** its `processed/.../part-0.parquet`. Deletes don't trigger the transform, so the processed file has to be removed by hand.
 
 ## Weekly use
 
